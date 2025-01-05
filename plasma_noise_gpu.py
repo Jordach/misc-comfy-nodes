@@ -205,12 +205,12 @@ class PlasmaNoise_v2:
 	def generate_plasma(self, width, height, turbulence, value_min, value_max, red_min, red_max, green_min, green_max, blue_min, blue_max, seed):
 		vmin = value_min if value_min != -1 else 0
 		vmax = value_max if value_max != -1 else 255
-		rmin = red_min if red_min != -1 else 0
-		rmax = red_max if red_max != -1 else 255
-		gmin = green_min if green_min != -1 else 0
-		gmax = green_max if green_max != -1 else 255
-		bmin = blue_min if blue_min != -1 else 0
-		bmax = blue_max if blue_max != -1 else 255
+		rmin = red_min if red_min != -1 else vmin
+		rmax = red_max if red_max != -1 else vmax
+		gmin = green_min if green_min != -1 else vmin
+		gmax = green_max if green_max != -1 else vmax
+		bmin = blue_min if blue_min != -1 else vmin
+		bmax = blue_max if blue_max != -1 else vmax
 		img = plasma.generate_plasma(width, height, turbulence, vmin, vmax, rmin, rmax, gmin, gmax, bmin, bmax, seed)
 		return conv_pil_tensor(img)
 
